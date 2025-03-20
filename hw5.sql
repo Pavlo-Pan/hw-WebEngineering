@@ -50,3 +50,17 @@ WHERE
 	purchase_order_id <= 100
 GROUP BY 
 	unit_cost;
+    
+    SELECT 
+    CASE 
+        WHEN unit_cost > 20 THEN 'Expensive' 
+        ELSE 'Others' 
+    END AS category, 
+    COUNT(*) AS product_count
+FROM 
+    northwind.purchase_order_details
+WHERE 
+    inventory_id IS NOT NULL
+GROUP BY 
+    category;
+

@@ -25,6 +25,13 @@ FROM
     SUM(quantity * unit_cost) OVER (PARTITION BY purchase_order_id) AS order_total
 FROM 
     purchase_order_details;
+SELECT 
+    purchase_order_id,
+    SUM(quantity * unit_cost) AS order_total
+FROM 
+    purchase_order_details
+GROUP BY 
+    purchase_order_id;
 
 SELECT 
     purchase_order_id,

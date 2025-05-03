@@ -32,7 +32,7 @@ FROM
     purchase_order_details
 GROUP BY 
     purchase_order_id;
-
+countries
 SELECT 
     purchase_order_id,
     date_received,

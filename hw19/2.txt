@@ -1,0 +1,4 @@
+db.getCollection('spotify').aggregate(
+  [{ $sort: { Duration_ms: -1 } }, { $limit: 1 }],
+  { maxTimeMS: 60000, allowDiskUse: true }
+);

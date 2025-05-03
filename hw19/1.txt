@@ -1,0 +1,8 @@
+db.getCollection('spotify').aggregate(
+  [
+    { $sort: { Danceability: -1 } },
+    { $sort: { Energy: -1 } },
+    { $limit: 1 }
+  ],
+  { maxTimeMS: 60000, allowDiskUse: true }
+);

@@ -1,0 +1,35 @@
+[
+  {
+    $sort:
+      /**
+       * Provide any number of field/order pairs.
+       */
+      {
+        Views: -1
+      }
+  },
+  {
+    $limit:
+      /**
+       * Provide the number of documents to limit.
+       */
+      20
+  },
+  {
+    $out:
+      /**
+       * Provide the name of the output database and collection.
+       */
+      {
+        db: "sample_mflix",
+        coll: "top_20_spotify"
+        /*
+    timeseries: {
+      timeField: 'field',
+      bucketMaxSpanSeconds: 'number',
+      granularity: 'granularity'
+    }
+    */
+      }
+  }
+]

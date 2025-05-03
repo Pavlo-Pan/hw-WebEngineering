@@ -1,0 +1,13 @@
+db.getCollection('spotify').aggregate(
+  [
+    {
+      $group: {
+        _id: '$Album',
+        Track: { $sum: 1 }
+      }
+    },
+    { $sort: { Track: -1 } },
+    { $limit: 1 }
+  ],
+  { maxTimeMS: 60000, allowDiskUse: true }
+);

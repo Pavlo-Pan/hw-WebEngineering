@@ -1,0 +1,16 @@
+db.getCollection('spotify').aggregate(
+  [
+    { $sort: { Stream: -1 } },
+    { $limit: 1 },
+    {
+      $project: {
+        _id: 0,
+        Artist: 1,
+        Track: 1,
+        Stream: 1,
+        Views: 1
+      }
+    }
+  ],
+  { maxTimeMS: 60000, allowDiskUse: true }
+);
